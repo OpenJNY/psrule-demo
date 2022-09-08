@@ -22,4 +22,4 @@ jobs:
       - name: Analyze Azure template files
         uses: microsoft/ps-rule@main
         with:
-          option: ps-rule.yaml
+          modules: "PSRule.Rules.Azure"
