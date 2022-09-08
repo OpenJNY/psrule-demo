@@ -1,19 +1,19 @@
 name: Test Azure Infra code with PSRule
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+    paths:
+      - "azure/**.bicep"
+      - "azure/**.json"
 
 permissions:
   contents: read
   pull-requests: write
 
 jobs:
-  analyze_arm:
+  psrule_for_azure:
     name: Analyze templates
     runs-on: ubuntu-latest
     steps:
