@@ -31,8 +31,11 @@ input:
   pathIgnore:
     # Ignore other files in the repository.
     - ".devcontainer/"
-    - ".vscode/"
+    - ".git/"
     - ".github/"
+    - ".ps-rule/"
+    - ".vscode/"
+    - "out/"
     - "*.md"
 
     # Exclude modules but not tests.
