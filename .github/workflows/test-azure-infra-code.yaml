@@ -22,4 +22,8 @@ jobs:
       - name: Analyze Azure template files
         uses: microsoft/ps-rule@main
         with:
-          modules: "PSRule.Rules.Azure"
+          modules: PSRule.Rules.Azure,PSRule.Monitor
+          conventions: Monitor.LogAnalytics.Import
+        env:
+          PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID: ${{ secrets.MONITOR_WORKSPACE_ID }}
+          PSRULE_CONFIGURATION_MONITOR_WORKSPACE_KEY: ${{ secrets.MONITOR_WORKSPACE_KEY }}
