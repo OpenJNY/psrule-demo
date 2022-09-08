@@ -16,6 +16,7 @@ jobs:
   psrule_for_azure:
     name: Analyze templates
     runs-on: ubuntu-latest
+    environment: azure-iac-psrule
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,5 +26,5 @@ jobs:
           modules: PSRule.Rules.Azure,PSRule.Monitor
           conventions: Monitor.LogAnalytics.Import
         env:
-          PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID: f92544cc-0c83-417f-9159-6ae48c25b9ba
+          PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID: ${{ secrets.MONITOR_WORKSPACE_ID }}
           PSRULE_CONFIGURATION_MONITOR_WORKSPACE_KEY: ${{ secrets.MONITOR_WORKSPACE_KEY }}
