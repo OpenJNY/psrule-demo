@@ -1,0 +1,23 @@
+name: Test Azure Infra code with PSRule
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  analyze_arm:
+    name: Analyze templates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Analyze Azure template files
+        uses: microsoft/ps-rule@main
